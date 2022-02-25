@@ -1,5 +1,5 @@
 serve:
-		python3 manage.py runserve
+		python3 manage.py runserver
 
 migrations:
 		python3 manage.py makemigrations
