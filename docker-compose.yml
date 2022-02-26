@@ -1,21 +1,17 @@
-version: '3.8'
-
+version: '3.7'
 services:
-   web:
+  web:
     build: .
-    command: python /bookstore/manage.py runserver 0.0.0.0:8000
+    command: python /code/manage.py runserver 0.0.0.0:8000
     volumes:
-    - .:/bookstore
-    port:
-    - 8000:8000
-
+        - .:/code
+    ports:
+      - 8000:8000
     depends_on:
       - db
-
-    db:
-      image: postgresql:11
-      
-      volumes:
-        - postgres_data:/var/lib/postgresql/data/
+  db:
+    image: postgres:11
+    volumes:
+     - postgres_data:/var/lib/postgresql/data/
 volumes:
-  postgres_data:
+    postgres_data:
