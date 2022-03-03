@@ -78,7 +78,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgrsql',
         'NAME': 'bookstore',
         'USER':'awadh-dev',
-        'PASSWORD': os.os.environ.get("PASSWORD"),
+        'PASSWORD': os.environ.get("PASSWORD"),
         'HOST': 'db',
         'PORT': 5432
     }
