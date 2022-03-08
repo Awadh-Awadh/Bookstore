@@ -20,3 +20,5 @@ RUN pip install pipenv && pipenv install --system
 # copy project
 
 COPY . /bookstore/
+
+CMD ["python3", "manage.py","runserver","0.0.0.0:8000"]

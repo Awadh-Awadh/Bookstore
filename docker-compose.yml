@@ -2,15 +2,23 @@ version: '3.7'
 services:
   web:
     build: .
-    command: python /bookstore/manage.py runserver 0.0.0.0:8000
     volumes:
         - .:/bookstore
     ports:
       - 8000:8000
+    container_name: django-bookstore
+    command: python3 /bookstore/manage.py runserver 0.0.0.0:8000
     depends_on:
       - db
   db:
-    image: postgres:11
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_NAME: bookstore
+      POSTGRES_PASSWORD: Access
+      POSTGRES_USER: awadh-dev
+    container_name: postgres_db
+    
     volumes:
      - postgres_data:/var/lib/postgresql/data/
 volumes:
